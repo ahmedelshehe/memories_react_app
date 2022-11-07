@@ -49,5 +49,5 @@ npm start
 
 ## for google sign in functionality 
 
--add client_id to the const client_id in 
--client/src/components/Auth/Auth.js file in line 33
+- add client_id to the const client_id in 
+- client/src/components/Auth/Auth.js file in line 33

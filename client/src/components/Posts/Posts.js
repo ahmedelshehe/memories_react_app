@@ -9,10 +9,10 @@ const Posts = ({setCurrentId})=>{
     const classes =useStyles()
     return (
         !posts.length ? <CircularProgress /> : (
-            <Grid className={classes.containe} container alignItems="stretch" spacing={3} >
+            <Grid className={classes.container} container alignItems="stretch" spacing={3} >
                 {
                     posts.map((post)=>(
-                        <Grid item key={post._id} xs={12} sm={6}>
+                        <Grid item key={post._id} xs={12} sm={12} md={6} lg={4}>
                             <Post post={post} setCurrentId={setCurrentId}/>
                         </Grid>
                     ))
