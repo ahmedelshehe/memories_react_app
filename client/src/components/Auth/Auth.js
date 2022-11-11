@@ -30,7 +30,7 @@ const Auth = () => {
     const handleChange =(e)=>{
         setFormData({...formData ,[e.target.name] : e.target.value})
     }
-    const clientId = '232145964647-rtlmpnt6umjhp41poa6lm8qvns9ie837.apps.googleusercontent.com';
+    const clientId = '';
 
     useEffect(() => {
     const initClient = () => {

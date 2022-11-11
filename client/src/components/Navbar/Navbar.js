@@ -31,10 +31,10 @@ const Navbar =() =>{
     },[location]);
     return (
             <AppBar className={classes.appBar} position="static" color="inherit">
-            <div className={classes.brandContainer}>
-                <img className={classes.image} src={memoriesText} alt="memories"  height="60" />
-                <img className={classes.image} src={memoriesLogo} alt="memories"  height="60" />
-            </div>
+            <Link to="/" className={classes.brandContainer}>
+                <img className={classes.image} src={memoriesText} alt="memories"  height="45px" />
+                <img className={classes.image} src={memoriesLogo} alt="memories"  height="40px" />
+            </Link>
             <Toolbar className={classes.toolbar}>
                 {user ? (
                     <div className={classes.profile}>
