@@ -15,8 +15,9 @@ const Paginate =({page})=> {
     }
   }, [dispatch, page]);
   return (
-    <Stack spacing={2}>
+    <Stack spacing={2}       style={{marginTop :'1rem'}}>
       <Pagination 
+      style={{ padding :'16px' }}
       classes={{ ul: classes.ul }}
       count={2} 
       color="primary"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getPosts ,getPostBySearch } from "../../actions/posts"
+import {getPostsBySearch } from "../../actions/posts"
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from "@material-ui/core"
@@ -28,7 +28,7 @@ const Home = () => {
     }
     const searchPost = ()=>{
         if(search.trim() || tags){
-            dispatch(getPostBySearch({search , tags : tags.join(',')}))
+            dispatch(getPostsBySearch({search , tags : tags.join(',')}))
             navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`)
         } else {
             navigate("/posts")
@@ -63,9 +63,11 @@ const Home = () => {
                             <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
                         </AppBar>
                         <Form currentId={currentId} setCurrentId={setCurrentId} />
-                        <Paper elevation={6} >
-                            <Pagination className={classes.pagination} page={page} />
-                        </Paper>
+                        {(!searchQuery && !tags.length) &&(
+                            <Paper elevation={6} >
+                                <Pagination className={classes.pagination} page={page} />
+                            </Paper>
+                        )}
                     </Grid>
                 </Grid>
             </Container>
