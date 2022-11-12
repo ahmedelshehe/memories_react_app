@@ -24,7 +24,6 @@ export const getPost =async (req, res) =>{
 }
 export const getPostsBySearch = async (req, res) => {
     const { searchQuery, tags } = req.query;
-    console.log(searchQuery)
     try {
         const title = new RegExp(searchQuery, "i");
 
@@ -74,5 +73,16 @@ export const likePost =async (req, res) => {
         post.likes =post.likes.filter((id)=> id !== String(req.userId))
     }
     const updatedPost = await PostMessage.findByIdAndUpdate(_id,post,{new :true})
+    res.json(updatedPost);
+}
+export const commentPost =async (req, res) => {
+    const {id} =req.params;
+    const {value} = req.body;
+    if(!req.userId) return res.json({message:"UnAuthenticated"})
+    if(!mongoose.
+        Types.ObjectId.isValid(id)) return res.status(404).send('No Post with that id');
+    const post = await PostMessage.findById(id);
+    post.comments.push(value);
+    const updatedPost = await PostMessage.findByIdAndUpdate(id,post,{new :true});
     res.json(updatedPost);
 }
